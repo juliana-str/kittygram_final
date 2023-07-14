@@ -24,7 +24,6 @@ services:
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
-      - media:/media
 
   gateway:
     build: ./nginx/
@@ -32,5 +31,5 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/staticfiles/
-      - media:/mediafiles/
+      - static:/static/
+      - media:/media/
