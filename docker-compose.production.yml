@@ -14,15 +14,17 @@ services:
   backend:
     image: julianastr/kittygram_backend
     env_file: .env
+    depends_on:
+      - db
     volumes:
       - static:/backend_static/
-      - media:/app/media
+      - media:/app/media/
   frontend:
     image: julianastr/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static:/static
+      - static:/frontend_static
   gateway:
     image: julianastr/kittygram_gateway
     env_file: .env
