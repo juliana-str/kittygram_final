@@ -29,6 +29,8 @@ services:
   gateway:
     image: julianastr/kittygram_gateway
     env_file: .env
+    depends on:
+      - backend
     volumes:
       - static:/static/
       - media:/app/media/
