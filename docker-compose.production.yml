@@ -25,12 +25,12 @@ services:
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
-      - media:/app/media/
+      - media:/app/media
   gateway:
     image: julianastr/kittygram_gateway
     env_file: .env
     volumes:
-      - static:/static/
-      - media:/app/media/
+      - static:/static
+      - media:/app/media
     ports:
       - 9000:80
