@@ -1,26 +1,70 @@
-#  Как работать с репозиторием финального задания
+#Kittygram
 
-## Что нужно сделать
+### Описание:
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+Kittygram — социальная сеть для обмена фотографиями любимых питомцев.
 
-## Как проверить работу с помощью автотестов
+### Установка:
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+Клонировать репозиторий и перейти в него в командной строке:
+
+```
+git clone https://git@github.com:juliana-str/kittygram_final.git
 ```
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+```
+cd backend
+```
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+Cоздать и активировать виртуальное окружение:
 
-## Чек-лист для проверки перед отправкой задания
+```
+python3 -m venv env
+```
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+* Если у вас Linux/macOS
+
+    ```
+    source env/bin/activate
+    ```
+
+* Если у вас windows
+
+    ```
+    source env/scripts/activate
+    ```
+
+```
+python3 -m pip install --upgrade pip
+```
+
+Установить зависимости из файла requirements.txt:
+
+```
+pip install -r requirements.txt
+```
+
+Выполнить миграции:
+
+```
+python3 manage.py migrate
+```
+
+Запустить проект:
+
+```
+python3 manage.py runserver
+```
+
+### Примеры запросов:
+Запрос на регистрацию нового пользователя:
+
+```
+https://my-kittygram.zapto.org/signin
+```
+
+Запрос на добавление нового котика:
+
+```
+https://my-kittygram.zapto.org/cats/add
+```
